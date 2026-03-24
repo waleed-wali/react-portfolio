@@ -11,23 +11,28 @@ export function Services() {
           Services Offered
         </SectionHeading>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {servicesData.map((service, index) => {
             const Icon = (Icons as any)[service.icon];
             return (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group bg-surface p-8 rounded-3xl border border-surfaceHover hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/5"
+                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.21, 0.45, 0.32, 0.9] }}
+                className="group relative bg-surface/30 backdrop-blur-md p-8 rounded-[2.5rem] border border-white/5 hover:bg-surface/60 transition-all hover:border-primary/30 flex flex-col items-center text-center"
               >
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
-                  {Icon && <Icon size={28} />}
+                <div className="w-20 h-20 rounded-[2rem] bg-background border border-white/5 flex items-center justify-center text-primary mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all shadow-xl group-hover:shadow-primary/40">
+                  {Icon && <Icon size={32} />}
                 </div>
-                <h3 className="text-xl font-bold text-textMain mb-4">{service.title}</h3>
+                <h3 className="text-xl font-bold text-textMain mb-4 font-display">{service.title}</h3>
                 <p className="text-textMuted text-sm leading-relaxed">{service.description}</p>
+                
+                {/* Decorative corner element */}
+                <div className="absolute top-4 right-4 text-white/5 group-hover:text-primary/20 transition-colors">
+                  <Icons.FiPlus size={20} />
+                </div>
               </motion.div>
             );
           })}

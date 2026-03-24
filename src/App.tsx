@@ -8,6 +8,7 @@ import { Experience } from './sections/Experience';
 import { Testimonials } from './sections/Testimonials';
 import { Contact } from './sections/Contact';
 import { Footer } from './sections/Footer';
+import { Loader, PremiumBackground } from './components/Effects';
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -18,18 +19,22 @@ function App() {
   });
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      className="min-h-screen bg-background"
-    >
+    <div className="relative font-sans text-textMain">
+      <Loader />
+      <PremiumBackground />
+      
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-primary z-[100] origin-left"
+        className="fixed top-0 left-0 right-0 h-[3px] bg-primary z-[100] origin-left shadow-[0_0_10px_2px_rgba(99,102,241,0.5)]"
         style={{ scaleX }}
       />
+      
       <Navbar />
-      <main>
+      
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 2.8 }} // Wait for loader
+      >
         <Hero />
         <Services />
         <Skills />
@@ -37,9 +42,10 @@ function App() {
         <Experience />
         <Testimonials />
         <Contact />
-      </main>
+      </motion.main>
+      
       <Footer />
-    </motion.div>
+    </div>
   );
 }
 

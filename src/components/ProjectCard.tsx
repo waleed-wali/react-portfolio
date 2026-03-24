@@ -13,35 +13,40 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative bg-surface p-6 rounded-2xl border border-surfaceHover transition-all hover:bg-surfaceHover/60 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5"
+      transition={{ duration: 0.6, delay: index * 0.15, ease: [0.21, 0.45, 0.32, 0.9] }}
+      className="group relative flex flex-col h-full bg-surface/40 backdrop-blur-sm p-8 rounded-[2rem] border border-white/5 transition-all hover:bg-surface/80 hover:-translate-y-2 hover:border-primary/50 overflow-hidden"
     >
-      <h3 className="text-2xl font-bold text-textMain mb-3 group-hover:text-primary transition-colors">
-        {project.title}
-      </h3>
+      {/* Glossy top light effect */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:via-primary/50" />
       
-      <p className="text-textMuted mb-6 leading-relaxed">
-        {project.description}
-      </p>
+      <div className="mb-6">
+        <h3 className="text-2xl font-black text-textMain mb-3 group-hover:text-primary transition-colors font-display tracking-tight">
+          {project.title}
+        </h3>
+        
+        <p className="text-textMuted text-sm leading-relaxed mb-6 h-[80px] overflow-hidden">
+          {project.description}
+        </p>
 
-      <div className="flex flex-wrap gap-2 mb-8">
-        {project.tech.map(tech => (
-          <span 
-            key={tech} 
-            className="px-3 py-1 text-xs font-medium text-primary bg-primary/10 rounded-full"
-          >
-            {tech}
-          </span>
-        ))}
+        <div className="flex flex-wrap gap-2">
+          {project.tech.map(tech => (
+            <span 
+              key={tech} 
+              className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 rounded-lg border border-primary/20"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
       </div>
 
-      <div className="flex items-center gap-4 mt-auto">
+      <div className="flex items-center gap-6 mt-auto pt-8 border-t border-white/5">
         {project.liveUrl && (
           <a
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-medium text-textMain hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-textMain hover:text-primary transition-colors"
           >
             <FiExternalLink /> Live Demo
           </a>
@@ -51,12 +56,15 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-medium text-textMain hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-textMuted hover:text-primary transition-colors"
           >
-            <FiGithub /> GitHub
+            <FiGithub /> Source Code
           </a>
         )}
       </div>
+
+      {/* Background glow on hover */}
+      <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity" />
     </motion.div>
   );
 }

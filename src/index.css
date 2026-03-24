@@ -2,18 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   body {
     @apply bg-background text-textMain font-sans antialiased selection:bg-primary/30;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
+  
+  h1, h2, h3, h4, .font-display {
+    @apply font-display;
+  }
+}
+
+/* Premium dynamic background blobs */
+.bg-blob {
+  @apply fixed -z-10 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 animate-slow-pulse;
+}
+
+.bg-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 /* Custom Scrollbar for a premium feel */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -21,9 +36,18 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-surfaceHover rounded-full;
+  @apply bg-surfaceHover rounded-full border-r border-transparent;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-textDark;
+  @apply bg-primary;
+}
+
+/* Smooth section reveals */
+.reveal-up {
+  @apply opacity-0 translate-y-10 transition-all duration-1000 ease-out;
+}
+
+.reveal-up.active {
+  @apply opacity-100 translate-y-0;
 }

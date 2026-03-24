@@ -30,8 +30,8 @@ export function Navbar() {
     <header 
       className={twMerge(
         clsx(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          isScrolled ? 'py-4 bg-background/80 backdrop-blur-md border-b border-surfaceHover shadow-sm' : 'py-6 bg-transparent'
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+          isScrolled ? 'py-4 bg-background/60 backdrop-blur-xl border-b border-white/5 shadow-2xl' : 'py-8 bg-transparent'
         )
       )}
     >
@@ -40,32 +40,45 @@ export function Navbar() {
         <Link 
           to="home" 
           smooth={true} 
-          className="text-xl font-bold tracking-tighter cursor-pointer text-textMain hover:text-primary transition-colors"
+          className="text-2xl font-black tracking-tighter cursor-pointer text-textMain group font-display"
         >
-          Waleed<span className="text-primary">.dev</span>
+          WALEED<span className="text-primary group-hover:text-secondary transition-colors">.</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
+        <nav className="hidden md:flex items-center gap-10">
+          {navLinks.map((link, i) => (
+            <motion.div
               key={link.to}
-              to={link.to}
-              spy={true}
-              smooth={true}
-              offset={-100}
-              activeClass="text-primary font-semibold"
-              className="text-textMuted hover:text-textMain text-sm font-medium cursor-pointer transition-colors"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 3.5 + (i * 0.1) }} // Wait for loader
             >
-              {link.name}
-            </Link>
+              <Link
+                to={link.to}
+                spy={true}
+                smooth={true}
+                offset={-100}
+                activeClass="text-primary font-bold"
+                className="text-textMuted hover:text-textMain text-xs font-bold uppercase tracking-widest cursor-pointer transition-colors relative group"
+              >
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full" />
+              </Link>
+            </motion.div>
           ))}
-          <a 
-            href="mailto:waleedwali03@gmail.com" 
-            className="px-5 py-2 text-sm font-medium text-background bg-primary hover:bg-primaryHover rounded-full transition-colors"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 4.2 }}
           >
-            Hire Me
-          </a>
+            <a 
+              href="mailto:waleedwali03@gmail.com" 
+              className="px-6 py-3 text-xs font-bold uppercase tracking-widest text-white bg-primary hover:bg-primaryHover rounded-xl transition-all shadow-lg shadow-primary/20"
+            >
+              Hire Me
+            </a>
+          </motion.div>
         </nav>
 
         {/* Mobile Toggle */}
