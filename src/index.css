@@ -16,9 +16,9 @@
   }
 }
 
-/* Premium dynamic background blobs */
 .bg-blob {
-  @apply fixed -z-10 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 animate-slow-pulse;
+  @apply fixed -z-10 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20;
+  animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .bg-grid {
