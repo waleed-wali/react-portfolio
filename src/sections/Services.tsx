@@ -13,7 +13,7 @@ export function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {servicesData.map((service, index) => {
-            const Icon = (Icons as any)[service.icon];
+            const Icon = (Icons as unknown as Record<string, React.ComponentType<{ size?: number }>>)[service.icon];
             return (
               <motion.div
                 key={service.id}
