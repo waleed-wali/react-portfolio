@@ -5,7 +5,7 @@ import { skillsData } from '../data/skills';
 export function Skills() {
   return (
     <section id="skills" className="py-24 bg-surface/30">
-      <div className="container mx-auto max-w-[1600px] px-6">
+      <div className="container mx-auto px-6 max-w-7xl">
         <SectionHeading subtitle="The technologies and tools I utilize to build scalable solutions.">
           My Expertise
         </SectionHeading>

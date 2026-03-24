@@ -5,7 +5,7 @@ import { projectsData } from '../data/projects';
 export function Projects() {
   return (
     <section id="projects" className="py-24">
-      <div className="container mx-auto max-w-[1600px] px-6">
+      <div className="container mx-auto px-6 max-w-7xl">
         <SectionHeading subtitle="Some of the recent projects I've built, focusing on scalable dashboards and robust platforms.">
           Featured Work
         </SectionHeading>

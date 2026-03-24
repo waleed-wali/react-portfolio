@@ -5,7 +5,7 @@ import { FiMail, FiPhone, FiLinkedin } from 'react-icons/fi';
 export function Contact() {
   return (
     <section id="contact" className="py-24">
-      <div className="container mx-auto max-w-[1600px] px-6">
+      <div className="container mx-auto px-6 max-w-7xl">
         <SectionHeading subtitle="Ready to start your next project? Let's discuss how I can help solve your API integration and frontend challenges.">
           Get In Touch
         </SectionHeading>
