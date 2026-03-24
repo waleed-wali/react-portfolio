@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Navbar } from './components/Navbar';
 import { Hero } from './sections/Hero';
@@ -17,6 +18,16 @@ function App() {
     damping: 30,
     restDelta: 0.001
   });
+
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+    // Backup for some browsers or slow renders
+    const timer = setTimeout(() => window.scrollTo(0, 0), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="relative font-sans text-textMain">

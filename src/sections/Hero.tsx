@@ -33,7 +33,10 @@ export function Hero() {
             Full Stack Developer
           </motion.p>
           
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-textMain leading-[1.1] font-display">
+          <h1 
+            className="font-extrabold tracking-tighter text-textMain leading-[1.1] font-display"
+            style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)' }}
+          >
             {name.split(" ").map((word, i) => (
               <span 
                 key={i} 
