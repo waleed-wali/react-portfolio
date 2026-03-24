@@ -3,7 +3,7 @@ import { Link } from 'react-scroll';
 import { FiArrowDown, FiDownload } from 'react-icons/fi';
 
 export function Hero() {
-  const name = "Muhammad Waleed Wali";
+  const name = "Hi, I'm Muhammad Waleed Wali";
   
   return (
     <section id="home" className="min-h-screen flex items-center relative py-20 overflow-hidden">
@@ -19,7 +19,7 @@ export function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
           </span>
-          Global Freelance Specialist
+          Junior Level Freelancer
         </motion.div>
 
         <div className="flex flex-col gap-2 mb-8">
@@ -29,7 +29,7 @@ export function Hero() {
              transition={{ duration: 0.5, delay: 3 }}
              className="text-primary font-bold tracking-widest text-sm uppercase"
           >
-            Senior Full-Stack Developer
+            Full Stack Developer
           </motion.p>
           
           <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter text-textMain leading-[0.95] font-display">

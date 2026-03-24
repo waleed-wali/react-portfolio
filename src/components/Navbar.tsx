@@ -42,7 +42,7 @@ export function Navbar() {
           smooth={true} 
           className="text-2xl font-black tracking-tighter cursor-pointer text-textMain group font-display"
         >
-          WALEED<span className="text-primary group-hover:text-secondary transition-colors">.</span>
+          WALEED WALI<span className="text-primary group-hover:text-secondary transition-colors">.dev</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -76,7 +76,7 @@ export function Navbar() {
               href="mailto:waleedwali03@gmail.com" 
               className="px-6 py-3 text-xs font-bold uppercase tracking-widest text-white bg-primary hover:bg-primaryHover rounded-xl transition-all shadow-lg shadow-primary/20"
             >
-              Hire Me
+              Let's Talk
             </a>
           </motion.div>
         </nav>

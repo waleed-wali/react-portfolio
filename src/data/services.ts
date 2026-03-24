@@ -20,9 +20,9 @@ export const servicesData: Service[] = [
     icon: "FiDatabase"
   },
   {
-    id: "consulting",
-    title: "Technical Consulting",
-    description: "Helping startups and businesses choose the right stack and architecture to ensure long-term scalability and code maintainability.",
+    id: "maintenance",
+    title: "App Maintenance & Scaling",
+    description: "Optimizing existing React/Node.js codebases, fixing legacy bugs, and scaling architectures to handle increased user traffic and data.",
     icon: "FiZap"
   }
 ];
