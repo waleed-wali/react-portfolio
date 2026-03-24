@@ -8,7 +8,7 @@ export function Hero() {
   
   return (
     <section id="home" className="min-h-screen flex items-center relative py-20 overflow-hidden">
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 w-full">
+      <div className="mx-auto px-6 max-w-7xl relative z-10">
         
         <motion.div
            initial={{ opacity: 0, scale: 0.8 }}

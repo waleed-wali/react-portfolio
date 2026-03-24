@@ -35,7 +35,7 @@ export function Navbar() {
         )
       )}
     >
-      <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
+      <div className="mx-auto px-6 max-w-7xl flex items-center justify-between">
         {/* Logo */}
         <Link 
           to="home" 

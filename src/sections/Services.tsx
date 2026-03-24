@@ -6,7 +6,7 @@ import * as Icons from 'react-icons/fi';
 export function Services() {
   return (
     <section id="services" className="py-24">
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="mx-auto px-6 max-w-7xl">
         <SectionHeading subtitle="Professional freelance solutions tailored for startups and businesses.">
           Services Offered
         </SectionHeading>

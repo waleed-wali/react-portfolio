@@ -6,7 +6,7 @@ import { FiMessageSquare } from 'react-icons/fi';
 export function Testimonials() {
   return (
     <section id="testimonials" className="py-24 bg-surface/30">
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="mx-auto px-6 max-w-7xl">
         <SectionHeading subtitle="What clients say about my quality of work and problem-solving skills.">
           Social Proof
         </SectionHeading>

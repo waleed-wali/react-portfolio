@@ -5,7 +5,7 @@ import { experienceData } from '../data/experience';
 export function Experience() {
   return (
     <section id="experience" className="py-24 bg-surface/30">
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="mx-auto px-6 max-w-7xl">
         <SectionHeading subtitle="My professional journey in building robust software solutions.">
           Work Experience
         </SectionHeading>
