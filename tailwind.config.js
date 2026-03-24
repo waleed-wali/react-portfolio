@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#030712', // Very dark slate/blue-950
-        surface: '#0f172a',    // blue-900
-        surfaceHover: '#1e293b',
-        primary: '#6366f1',    // indigo-500
+        background: '#050505', // Deep Neutral Black
+        surface: '#0d0d0d',    // Dark Gray Surface
+        surfaceHover: '#171717',
+        primary: '#6366f1',    // Indigo-500
         primaryHover: '#4f46e5',
         secondary: '#06b6d4',  // cyan-500
         textMain: '#f8fafc',

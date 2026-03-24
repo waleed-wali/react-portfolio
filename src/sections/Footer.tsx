@@ -2,7 +2,7 @@ import { FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi';
 
 export function Footer() {
   return (
-    <footer className="bg-surface border-t border-surfaceHover py-12">
+    <footer className="bg-surface border-t border-surfaceHover py-2">
       <div className="container mx-auto max-w-[1600px] px-6 flex items-center justify-between gap-6">
         
         <p className="text-textMuted text-sm">
