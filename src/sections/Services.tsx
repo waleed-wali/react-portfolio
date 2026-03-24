@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
 import { SectionHeading } from '../components/SectionHeading';
 import { servicesData } from '../data/services';
-import { FiLayout, FiServer, FiSmartphone, FiCpu, FiPlus } from 'react-icons/fi';
+import { FiLayers, FiPieChart, FiDatabase, FiZap, FiPlus } from 'react-icons/fi';
 
 const iconMap: Record<string, React.ElementType> = {
-  FiLayout,
-  FiServer,
-  FiSmartphone,
-  FiCpu,
+  FiLayers,
+  FiPieChart,
+  FiDatabase,
+  FiZap,
   FiPlus
 };
 

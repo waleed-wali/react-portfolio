@@ -73,7 +73,7 @@ export function Navbar() {
             transition={{ duration: 0.5, delay: 4.2 }}
           >
             <a 
-              href="mailto:waleedwali03@gmail.com" 
+              href="mailto:waleedwali03@gmail.com?subject=Project Inquiry&body=Hi Waleed, I'd like to talk about a project..." 
               className="px-6 py-3 text-xs font-bold uppercase tracking-widest text-white bg-primary hover:bg-primaryHover rounded-xl transition-all shadow-lg shadow-primary/20"
             >
               Let's Talk
@@ -113,6 +113,12 @@ export function Navbar() {
                   {link.name}
                 </Link>
               ))}
+              <a 
+                href="mailto:waleedwali03@gmail.com?subject=Project Inquiry&body=Hi Waleed, I'd like to talk about a project..." 
+                className="mt-4 px-8 py-3 text-xs font-bold uppercase tracking-widest text-white bg-primary rounded-xl"
+              >
+                Let's Talk
+              </a>
             </div>
           </motion.div>
         )}
