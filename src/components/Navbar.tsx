@@ -7,6 +7,7 @@ import { twMerge } from 'tailwind-merge';
 
 const navLinks = [
   { name: 'Home', to: 'home' },
+  { name: 'Services', to: 'services' },
   { name: 'Skills', to: 'skills' },
   { name: 'Projects', to: 'projects' },
   { name: 'Experience', to: 'experience' },

@@ -58,16 +58,14 @@ export function Hero() {
             offset={-100}
             className="cursor-pointer px-8 py-4 bg-primary text-white font-medium rounded-full hover:bg-primaryHover transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1"
           >
-            View Projects
+            Explore Projects
           </Link>
-          <Link
-            to="contact"
-            smooth={true}
-            offset={-100}
-            className="cursor-pointer px-8 py-4 bg-surfaceHover text-textMain font-medium rounded-full hover:bg-gray-800 transition-all border border-surface"
+          <a
+            href="#" // Placeholder for Resume link
+            className="flex items-center gap-2 px-8 py-4 bg-surfaceHover text-textMain font-medium rounded-full hover:bg-gray-800 transition-all border border-surface"
           >
-            Contact Me
-          </Link>
+            Download Resume
+          </a>
         </motion.div>
       </div>
     </section>
