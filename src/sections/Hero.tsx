@@ -61,7 +61,8 @@ export function Hero() {
             Explore Projects
           </Link>
           <a
-            href="#" // Placeholder for Resume link
+            href="./Muhammad-Waleed-Wali-FullStack-Developer.pdf"
+            download="Muhammad_Waleed_Wali_Resume.pdf"
             className="flex items-center gap-2 px-8 py-4 bg-surfaceHover text-textMain font-medium rounded-full hover:bg-gray-800 transition-all border border-surface"
           >
             Download Resume
