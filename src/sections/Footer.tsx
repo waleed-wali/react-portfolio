@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto px-6 max-w-7xl flex items-center justify-between gap-6">
         
         <p className="text-textMuted text-sm">
-          &copy; 2026 Muhammad Waleed Wali. All rights reserved.
+          &copy; {new Date().getFullYear()} Muhammad Waleed Wali. All rights reserved.
         </p>
 
         <div className="flex items-center gap-4">

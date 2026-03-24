@@ -58,7 +58,13 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="bg-surface p-8 rounded-3xl border border-surfaceHover shadow-xl shadow-black/50"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const name = formData.get('name');
+              const message = formData.get('message');
+              window.location.href = `mailto:waleedwali03@gmail.com?subject=Contact from ${name}&body=${message}`;
+            }}
           >
             <div className="space-y-6">
               <div>
@@ -66,6 +72,8 @@ export function Contact() {
                 <input 
                   type="text" 
                   id="name" 
+                  name="name"
+                  required
                   className="w-full bg-background border border-surfaceHover rounded-xl px-4 py-3 text-textMain focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                   placeholder="John Doe"
                 />
@@ -75,6 +83,8 @@ export function Contact() {
                 <input 
                   type="email" 
                   id="email" 
+                  name="email"
+                  required
                   className="w-full bg-background border border-surfaceHover rounded-xl px-4 py-3 text-textMain focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                   placeholder="john@example.com"
                 />
@@ -83,13 +93,15 @@ export function Contact() {
                 <label htmlFor="message" className="block text-sm font-medium text-textMuted mb-2">Your Message</label>
                 <textarea 
                   id="message" 
+                  name="message"
+                  required
                   rows={4}
                   className="w-full bg-background border border-surfaceHover rounded-xl px-4 py-3 text-textMain focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none"
                   placeholder="How can I help you?"
                 ></textarea>
               </div>
               <button 
-                type="button"
+                type="submit"
                 className="w-full bg-primary hover:bg-primaryHover text-white font-medium py-3.5 rounded-xl transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 transform active:scale-[0.98]"
               >
                 Send Message

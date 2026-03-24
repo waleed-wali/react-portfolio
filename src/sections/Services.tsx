@@ -1,7 +1,15 @@
 import { motion } from 'framer-motion';
 import { SectionHeading } from '../components/SectionHeading';
 import { servicesData } from '../data/services';
-import * as Icons from 'react-icons/fi';
+import { FiLayout, FiServer, FiSmartphone, FiCpu, FiPlus } from 'react-icons/fi';
+
+const iconMap: Record<string, React.ElementType> = {
+  FiLayout,
+  FiServer,
+  FiSmartphone,
+  FiCpu,
+  FiPlus
+};
 
 export function Services() {
   return (
@@ -13,7 +21,7 @@ export function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {servicesData.map((service, index) => {
-            const Icon = (Icons as unknown as Record<string, React.ComponentType<{ size?: number }>>)[service.icon];
+            const Icon = iconMap[service.icon];
             return (
               <motion.div
                 key={service.id}
@@ -31,7 +39,7 @@ export function Services() {
                 
                 {/* Decorative corner element */}
                 <div className="absolute top-4 right-4 text-white/5 group-hover:text-primary/20 transition-colors">
-                  <Icons.FiPlus size={20} />
+                  <FiPlus size={20} />
                 </div>
               </motion.div>
             );
