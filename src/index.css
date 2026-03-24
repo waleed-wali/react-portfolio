@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -13,26 +18,19 @@ html, body {
   max-width: 100vw;
   overflow-x: hidden;
   position: relative;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-html {
-  font-size: 16px !important; /* Lock scale back to dev default */
-  line-height: 1.5;
-  -webkit-text-size-adjust: 100%;
+  font-family: 'Inter', sans-serif;
 }
 
 @layer base {
   body {
-    @apply bg-background text-textMain font-sans antialiased selection:bg-primary/30;
+    @apply bg-background text-textMain antialiased selection:bg-primary/30;
     line-height: 1.5;
     scroll-behavior: smooth;
     overflow-x: hidden;
   }
   
-  h1, h2, h3, h4 {
-    font-family: 'Outfit', sans-serif;
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', sans-serif !important;
   }
 }
 

@@ -33,15 +33,12 @@ export function Hero() {
             Full Stack Developer
           </motion.p>
           
-          <h1 
-            className="font-extrabold tracking-tighter text-textMain leading-[1.1] font-display"
-            style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)' }}
-          >
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-textMain leading-[1.1] font-display">
             {name.split(" ").map((word, i) => (
               <span 
                 key={i} 
                 className={clsx(
-                  "inline-block mr-4 overflow-hidden whitespace-nowrap",
+                  "inline-block mr-3 sm:mr-4 md:mr-6 overflow-hidden whitespace-nowrap",
                   i > 1 ? "text-primary" : "text-textMain"
                 )}
               >
