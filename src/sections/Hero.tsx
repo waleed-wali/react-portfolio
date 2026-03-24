@@ -68,7 +68,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 4 }}
           className="text-2xl md:text-3xl text-textMuted font-medium mb-8 max-w-2xl leading-tight"
         >
-          I architect <span className="text-textMain border-b-2 border-primary/40">scalable dashboards</span> and solve complex API integration puzzles for modern brands.
+          I help businesses build <span className="text-textMain border-b-2 border-primary/40">scalable dashboards</span> and solve complex API integration challenges with clean, high-performance solutions.
         </motion.h2>
 
         <motion.div
