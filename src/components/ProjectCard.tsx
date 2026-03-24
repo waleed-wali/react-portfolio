@@ -1,6 +1,5 @@
 import { type Project } from '../types';
 import { motion } from 'framer-motion';
-import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
 interface ProjectCardProps {
   project: Project;
@@ -24,10 +23,12 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {project.title}
         </h3>
         
-        <p className="text-textMuted text-sm leading-relaxed mb-6 h-[80px] overflow-hidden">
+        <p className="text-textMuted text-sm leading-relaxed mb-6">
           {project.description}
         </p>
+      </div>
 
+      <div className="mt-auto pt-8 border-t border-white/5">
         <div className="flex flex-wrap gap-2">
           {project.tech.map(tech => (
             <span 
@@ -38,29 +39,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </span>
           ))}
         </div>
-      </div>
-
-      <div className="flex items-center gap-6 mt-auto pt-8 border-t border-white/5">
-        {project.liveUrl && (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-textMain hover:text-primary transition-colors"
-          >
-            <FiExternalLink /> Live Demo
-          </a>
-        )}
-        {project.githubUrl && (
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-textMuted hover:text-primary transition-colors"
-          >
-            <FiGithub /> Source Code
-          </a>
-        )}
       </div>
 
       {/* Background glow on hover */}

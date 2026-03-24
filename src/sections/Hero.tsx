@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { FiArrowDown, FiDownload } from 'react-icons/fi';
+import { clsx } from 'clsx';
 
 export function Hero() {
   const name = "Hi, I'm Muhammad Waleed Wali";
   
   return (
     <section id="home" className="min-h-screen flex items-center relative py-20 overflow-hidden">
-      <div className="container mx-auto max-w-6xl px-6 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10 w-full">
         
         <motion.div
            initial={{ opacity: 0, scale: 0.8 }}
@@ -32,9 +33,15 @@ export function Hero() {
             Full Stack Developer
           </motion.p>
           
-          <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter text-textMain leading-[0.95] font-display">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-textMain leading-[1.1] font-display">
             {name.split(" ").map((word, i) => (
-              <span key={i} className="inline-block mr-4 whitespace-nowrap overflow-hidden">
+              <span 
+                key={i} 
+                className={clsx(
+                  "inline-block mr-4 overflow-hidden whitespace-nowrap",
+                  i > 1 ? "text-primary" : "text-textMain"
+                )}
+              >
                 {word.split("").map((char, j) => (
                   <motion.span
                     key={j}
