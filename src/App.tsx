@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './sections/Footer';
 import { Loader, PremiumBackground } from './components/Effects';
@@ -58,9 +58,9 @@ function MainLayout() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <MainLayout />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

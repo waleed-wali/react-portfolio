@@ -62,7 +62,7 @@ export function Navbar() {
 
     return (
       <RouterLink
-        to={`/#${link.to}`}
+        to="/"
         className={commonClasses}
         onClick={() => mobile && setMobileMenuOpen(false)}
       >
