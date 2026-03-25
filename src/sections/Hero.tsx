@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-scroll';
-import { FiArrowDown, FiDownload } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { FiArrowRight, FiDownload } from 'react-icons/fi';
 import { clsx } from 'clsx';
 
 export function Hero() {
@@ -20,7 +20,7 @@ export function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
           </span>
-          Junior Level Freelancer
+          Mid Level Freelancer
         </motion.div>
 
         <div className="flex flex-col gap-2 mb-8">
@@ -78,13 +78,11 @@ export function Hero() {
           className="flex flex-wrap items-center gap-6"
         >
           <Link
-            to="projects"
-            smooth={true}
-            offset={-100}
+            to="/projects"
             className="cursor-pointer px-10 py-5 bg-primary text-white font-bold rounded-2xl hover:bg-primaryHover transition-all shadow-2xl shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-1 flex items-center gap-2 group"
           >
             Explore My Work
-            <FiArrowDown className="group-hover:translate-y-1 transition-transform" />
+            <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
           </Link>
           <a
             href="./Muhammad-Waleed-Wali-FullStack-Developer.pdf"

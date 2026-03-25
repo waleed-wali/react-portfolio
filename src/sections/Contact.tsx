@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { SectionHeading } from '../components/SectionHeading';
-import { FiMail, FiPhone, FiLinkedin } from 'react-icons/fi';
+import { FiMail, FiLinkedin } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export function Contact() {
   return (
@@ -30,12 +31,12 @@ export function Contact() {
                 </div>
               </a>
 
-              <a href="tel:+923321921910" className="flex items-center gap-4 group">
+              <a href="https://wa.me/923321921910" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
                 <div className="w-12 h-12 rounded-xl bg-surface flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                  <FiPhone size={20} />
+                  <FaWhatsapp size={20} />
                 </div>
                 <div>
-                  <p className="text-textMuted text-sm">Call me at</p>
+                  <p className="text-textMuted text-sm">WhatsApp me at</p>
                   <p className="text-textMain font-medium group-hover:text-primary transition-colors">+92 332 1921910</p>
                 </div>
               </a>

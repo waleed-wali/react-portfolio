@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -17,6 +18,9 @@ const navLinks = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +29,48 @@ export function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLogoClick = () => {
+    if (isHomePage) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
+  };
+
+  const NavLink = ({ link, mobile = false }: { link: typeof navLinks[0], mobile?: boolean }) => {
+    const commonClasses = mobile 
+      ? "text-textMain font-medium cursor-pointer" 
+      : "text-textMuted hover:text-textMain text-xs font-bold uppercase tracking-widest cursor-pointer transition-colors relative group";
+
+    if (isHomePage) {
+      return (
+        <ScrollLink
+          to={link.to}
+          spy={true}
+          smooth={true}
+          offset={-100}
+          activeClass="text-primary font-bold"
+          className={commonClasses}
+          onClick={() => mobile && setMobileMenuOpen(false)}
+        >
+          {link.name}
+          {!mobile && <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full" />}
+        </ScrollLink>
+      );
+    }
+
+    return (
+      <RouterLink
+        to={`/#${link.to}`}
+        className={commonClasses}
+        onClick={() => mobile && setMobileMenuOpen(false)}
+      >
+        {link.name}
+        {!mobile && <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full" />}
+      </RouterLink>
+    );
+  };
 
   return (
     <header 
@@ -37,13 +83,12 @@ export function Navbar() {
     >
       <div className="mx-auto px-6 max-w-7xl flex items-center justify-between">
         {/* Logo */}
-        <Link 
-          to="home" 
-          smooth={true} 
+        <div 
+          onClick={handleLogoClick}
           className="text-2xl font-black tracking-tighter cursor-pointer text-textMain group font-display"
         >
           WALEED WALI<span className="text-primary group-hover:text-secondary transition-colors">.dev</span>
-        </Link>
+        </div>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10">
@@ -54,17 +99,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 3.5 + (i * 0.1) }} // Wait for loader
             >
-              <Link
-                to={link.to}
-                spy={true}
-                smooth={true}
-                offset={-100}
-                activeClass="text-primary font-bold"
-                className="text-textMuted hover:text-textMain text-xs font-bold uppercase tracking-widest cursor-pointer transition-colors relative group"
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full" />
-              </Link>
+              <NavLink link={link} />
             </motion.div>
           ))}
           <motion.div
@@ -101,17 +136,7 @@ export function Navbar() {
           >
             <div className="flex flex-col items-center py-6 gap-6">
               {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-textMain font-medium cursor-pointer"
-                >
-                  {link.name}
-                </Link>
+                <NavLink key={link.to} link={link} mobile />
               ))}
               <a 
                 href="mailto:waleedwali03@gmail.com?subject=Project Inquiry&body=Hi Waleed, I'd like to talk about a project..." 

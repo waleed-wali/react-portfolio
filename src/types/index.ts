@@ -5,6 +5,8 @@ export interface Project {
   tech: string[];
   liveUrl?: string;
   githubUrl?: string;
+  longDescription?: string;
+  milestones?: string[];
 }
 
 export interface SkillCategory {

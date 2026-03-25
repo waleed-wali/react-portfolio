@@ -1,5 +1,7 @@
 import { type Project } from '../types';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { FiArrowRight } from 'react-icons/fi';
 
 interface ProjectCardProps {
   project: Project;
@@ -28,7 +30,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </p>
       </div>
 
-      <div className="mt-auto pt-8 border-t border-white/5">
+      <div className="mb-8 overflow-hidden">
         <div className="flex flex-wrap gap-2">
           {project.tech.map(tech => (
             <span 
@@ -39,6 +41,16 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </span>
           ))}
         </div>
+      </div>
+
+      <div className="mt-auto">
+        <Link 
+          to={`/project/${project.id}`}
+          className="inline-flex items-center gap-2 text-sm font-bold text-primary group/btn"
+        >
+          View Details
+          <FiArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
+        </Link>
       </div>
 
       {/* Background glow on hover */}

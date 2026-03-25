@@ -1,33 +1,30 @@
 import { useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Hero } from './sections/Hero';
-import { Services } from './sections/Services';
-import { Skills } from './sections/Skills';
-import { Projects } from './sections/Projects';
-import { Experience } from './sections/Experience';
-import { Testimonials } from './sections/Testimonials';
-import { Contact } from './sections/Contact';
 import { Footer } from './sections/Footer';
 import { Loader, PremiumBackground } from './components/Effects';
+import { Home } from './pages/Home';
+import { AllProjects } from './pages/AllProjects';
+import { ProjectDetails } from './pages/ProjectDetails';
 
-function App() {
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function MainLayout() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
-
-  useEffect(() => {
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
-    window.scrollTo(0, 0);
-    // Backup for some browsers or slow renders
-    const timer = setTimeout(() => window.scrollTo(0, 0), 100);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <div className="relative font-sans text-textMain">
@@ -44,19 +41,26 @@ function App() {
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2.8 }} // Wait for loader
+        transition={{ duration: 1, delay: 2.8 }}
       >
-        <Hero />
-        <Services />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Testimonials />
-        <Contact />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<AllProjects />} />
+          <Route path="/project/:id" element={<ProjectDetails />} />
+        </Routes>
       </motion.main>
       
       <Footer />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <MainLayout />
+    </BrowserRouter>
   );
 }
 
